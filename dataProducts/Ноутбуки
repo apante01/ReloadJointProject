@@ -1,0 +1,5 @@
+nameProduct:ноутбук brand:IRBIS price:12499 description:Процессор-Intel_Atom,4_ядра,RAM_2GB article:1116
+nameProduct:ноутбук brand:ASUS price:19999 description:Процессор-Intel_Celeron_N4020,2_ядра,RAM_4GB article:1117
+nameProduct:ноутбук brand:LENOVO price:20999 description:Процессор-Intel_AMD_3020e,2_ядра,RAM_4GB article:1118
+nameProduct:ноутбук brand:HP price:23799 description:Процессор-Intel_Celeron_N4500,2_ядра,RAM_4GB article:1119
+nameProduct:ноутбук brand:DELL price:34999 description:Процессор-Intel_Core_I3_1115G4,2_ядра,RAM_4GB article:1120
