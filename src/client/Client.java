@@ -1,6 +1,9 @@
 package client;
 
+import exception.PhoneNumberInvalidException;
+
 import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Client {
@@ -72,19 +75,21 @@ public class Client {
         this.email = email;
     }
 
-    public void writeDbClient(Scanner scanner)  {
-        String filename = scanner.nextLine();
-        try (FileWriter fw = new FileWriter(CATALOG_NAME + filename, true)) {
+    public void writeDbClient(Scanner scanner) {
+
+        try (FileWriter fw = new FileWriter(CATALOG_NAME, true)) {
             System.out.println("Введите Имя");
-            fw.write("name:" + scanner.nextLine() + " ");
+            fw.write("name:" + scanner.next() + " ");
             System.out.println("Введите фамилию");
-            fw.write("lastName:" + scanner.nextLine() + " ");
+            fw.write("lastName:" + scanner.next() + " ");
             System.out.println("Введите пол (м/ж)");
-            fw.write("gender:" + scanner.nextLine() + " ");
+            fw.write("gender:" + scanner.next() + " ");
             System.out.println("Введите возраст");
             fw.write("age:" + scanner.nextInt() + " ");
-            System.out.println("Введите телефон (10 знаков без пробелов)");
-            fw.write("phoneNumber:" + scanner.nextInt() + " ");
+            System.out.println("Введите телефон (10 знаков без пробелов +7)");
+            checkPhoneNumber(scanner,fw);
+            System.out.println("Введите номер телефона повторно (+7)");
+            checkPhoneNumber(scanner,fw);
             System.out.println("Введите электронную почту");
             fw.write("email:" + scanner.next() + " ");
             fw.write("\n");
@@ -93,4 +98,35 @@ public class Client {
             e.printStackTrace();
         }
     }
+
+    public void checkPhoneNumber(Scanner scanner, FileWriter fw)  {
+        try {
+            String phone = scanner.next();
+            if (phone.length() > 10 || phone.length() < 10) {
+                throw new PhoneNumberInvalidException("Номер телефона должен содержать 10 символов: "
+                        + phone.length());
+            } else {
+                fw.write("phoneNumber:" + phone + " ");
+            }
+        } catch (PhoneNumberInvalidException p) {
+            System.out.println(p.getMessage());
+            p.printStackTrace();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    //Метод с циклом while (не пропускает к следующему шагу, пока все условия не будут выполнены)
+   /* public void checkPhoneNumber(Scanner scanner, FileWriter fw) throws IOException {
+        while (true){
+            String phone = scanner.next();
+            if (phone.length() > 10 || phone.length() < 10) {
+                System.out.println("Вы ввели некоректный телефон, попробуйте снова" +
+                        "номер должен содержать 10 цифр (+7)");
+            } else if(phone.length() ==10) {
+                fw.write("phoneNumber:" + phone + " ");
+                break;
+            }}}
+
+    */
+
 }

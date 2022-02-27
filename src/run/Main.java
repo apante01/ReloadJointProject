@@ -16,12 +16,16 @@ public class Main {
         while (!scanner.hasNextInt()) {
             scanner.next();
             System.out.println("Введите число!");}
+        while (true){
         int num = scanner.nextInt();
         if (num == 1) {
             client.writeDbClient(scanner);
         }
         else if(num == 2){
             System.out.println("Пока ничего");
+        }else {
+            System.out.println("Такой команды нет введите из предложенного");
+        }
         }
 
 
@@ -30,7 +34,7 @@ public class Main {
 
 
 
-        System.out.println();
+        //System.out.println();
 
     }
 }

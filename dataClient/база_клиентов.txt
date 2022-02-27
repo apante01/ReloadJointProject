@@ -1,0 +1,4 @@
+name:Олег lastName:Петров gender:м age:23 phoneNumber:9023452112 email:oleg@mail.ru 
+name:jktu lastName:sfdf gender:v age:23 phoneNumber:9021234554 email:lkjljl 
+name:kjj lastName:sdfdsf gender:v age:23 email:fsf 
+name:1 lastName:1 gender:1 age:1 phoneNumber:9022122332 email:лдододр 
