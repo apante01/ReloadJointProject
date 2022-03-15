@@ -6,15 +6,16 @@ import service.senderService.EmailSender;
 import service.senderService.SenderMessage;
 import service.senderService.SmsSender;
 import service.senderService.TelegramSender;
+import thread.ClientThread;
 
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        SenderMessage email = new EmailSender();
-        SenderMessage sms = new SmsSender(email);
-        SenderMessage telegram = new TelegramSender(sms);
-        telegram.send("Скидка 10% на всю электронную технику до конца марта! ");
+        for (int i = 0; i < 3; i++)
+       new ClientThread("Добавление товара в корзину "+i).start();
+        SenderMessage email = new EmailSender(new SmsSender(new TelegramSender()));
+        email.send("Скидка 10% на всю электронную технику до конца марта! ");
         System.out.println("----------------------");
         OnlineStore onlineStore = new OnlineStore("@_VES-NA_@");
         onlineStore.getContact();
