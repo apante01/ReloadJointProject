@@ -1,12 +1,17 @@
 package service;
 
 import product.Product;
+import thread.ThreadBasket;
 
 import java.util.HashSet;
 import java.util.Set;
 
 public class Basket implements Buy {
     private String nameBasket;
+    public int basketCapacity=1;
+
+    public Basket() {
+    }
 
     public Basket(String nameBasket) {
         this.nameBasket = nameBasket;
@@ -28,6 +33,10 @@ public class Basket implements Buy {
         basket.add(product);
         return basket;
     }
+
+
+
+
 
     public String getNameBasket() {
         return nameBasket;

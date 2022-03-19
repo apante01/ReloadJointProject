@@ -88,8 +88,8 @@ public class Client {
             fw.write("age:" + scanner.nextInt() + " ");
             System.out.println("Введите телефон (10 знаков без пробелов +7)");
             checkPhoneNumber(scanner,fw);
-            System.out.println("Введите номер телефона повторно (+7)");
-            checkPhoneNumber(scanner,fw);
+            //System.out.println("Введите номер телефона повторно (+7)");
+            //checkPhoneNumber(scanner,fw);
             System.out.println("Введите электронную почту");
             fw.write("email:" + scanner.next() + " ");
             fw.write("\n");
@@ -114,6 +114,19 @@ public class Client {
         }catch (Exception e){
             e.printStackTrace();
         }
+    }
+    public void test(Scanner scanner) {
+        System.out.println("У вас осталось 3 попытки");
+        String phone = scanner.next();
+        if (phone.length() > 10 || phone.length() < 10) {
+            System.out.println("У вас осталась 2 попытки");
+            scanner.next(phone);}
+        else if  (phone.length() > 10 || phone.length() < 10){
+            System.out.println("У вас осталась 1 попытка");
+        scanner.next(phone);}
+    else
+            System.out.println("Выйти из регистрации");
+
     }
     //Метод с циклом while (не пропускает к следующему шагу, пока все условия не будут выполнены)
    /* public void checkPhoneNumber(Scanner scanner, FileWriter fw) throws IOException {
